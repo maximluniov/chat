@@ -7,7 +7,7 @@ const Header = () => {
 
 
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+ 
 
   return (
     <div className='flex items-center justify-between gap-x-2 p-2'>

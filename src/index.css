@@ -31,3 +31,25 @@ input{
     90% {opacity: 1;}
     100% {opacity: 0;}
   }
+
+  .messages {
+    background-color: #ddddf7;
+    padding: 10px;
+    
+    overflow-y: auto;}
+
+
+    .messages::-webkit-scrollbar {
+        width: 0;
+      }
+
+    /* .messages::-webkit-scrollbar-track{
+    background: #d4d4d4;
+    box-shadow: 0 0 2px rgba(0,0,0, .2) inset;
+}
+.messages::-webkit-scrollbar-thumb{
+    background: #939393;
+}
+.messages::-webkit-scrollbar-thumb:hover{
+    background: #7c7c7c;
+} */

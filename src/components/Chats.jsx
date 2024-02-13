@@ -33,12 +33,12 @@ const Chats = () => {
    return (
         <div className='h-full bg-indigo-200'>
             {
-                Object.entries(chats)?.map((chat)=>(
+                Object.entries(chats)?.sort((a,b)=>b[1].date-a[1].date).map((chat)=>(
                     <div key={chat[0]} className='flex p-2 gap-x-2 items-center' onClick={()=>handleSelect(chat[1].userInfo)}>
                         <img className='w-8' src={chat[1].userInfo.photoURL} alt="ava" />
                         <div className='flex flex-col'>
                             <p>{ chat[1].userInfo.displayName }</p>
-                            <p>{ chat[1].userInfo.lastMessage?.text }</p>
+                            <p>{ chat[1].lastMessage.text }</p>
                         </div>
                     </div>
                 ))

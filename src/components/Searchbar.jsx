@@ -3,6 +3,8 @@ import { collection, query, where ,getDocs, serverTimestamp, getDoc } from "fire
 import {db} from '../firebase'
 import { AuthContext } from '../context/AuthContext'
 import { doc, setDoc ,updateDoc  } from "firebase/firestore";
+import { ChatContext } from '../context/ChatContext';
+
 
 function useInput(initValue){
   const [value,setValue]= useState(initValue);
@@ -15,9 +17,10 @@ function useInput(initValue){
 }
 
 const Searchbar = () => {
-  // const input = useInput("")
+   useInput("")
 
   const { currentUser } = useContext(AuthContext);
+  const {dispatch} = useContext(ChatContext)
 
     const [username,setUsername] =useState("")
     const[user,setUser] = useState(null);
@@ -79,7 +82,8 @@ const Searchbar = () => {
         });
       }
     } catch (err) {}
-
+    
+    dispatch({type:"CHANGE_USER",payload:user})
     setUser(null);
     setUsername("")
   };
