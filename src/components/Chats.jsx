@@ -38,7 +38,7 @@ const Chats = () => {
                         <img className='w-8' src={chat[1].userInfo.photoURL} alt="ava" />
                         <div className='flex flex-col'>
                             <p>{ chat[1].userInfo.displayName }</p>
-                            <p>{ chat[1].lastMessage.text }</p>
+                            <p>{ chat[1].lastMessage?.text }</p>
                         </div>
                     </div>
                 ))
