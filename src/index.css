@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.button{
+    transition: transform .5s ;
+
+}
+
+.button:hover{
+    transform:  scale(1.05) ;
+}
+
+.font{
+    font-family: 'Poppins', sans-serif;
+}
+
+input{
+    outline: none;
+}
+
+.error{
+    opacity: 0;
+  animation: ani 5s forwards;
+}
+
+@keyframes ani {
+    0% {opacity: 0;}
+    10% {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
+  }
