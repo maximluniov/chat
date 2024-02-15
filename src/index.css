@@ -3,53 +3,101 @@
 @tailwind utilities;
 
 
-.button{
-    transition: transform .5s ;
+.button {
+    transition: transform .5s;
 
 }
 
-.button:hover{
-    transform:  scale(1.05) ;
+.button:hover {
+    transform: scale(1.05);
+    background: rgb(226, 155, 155);
+    transition: background 0.5s ease;
 }
 
-.font{
+.chat:hover{
+    background: rgb(172, 186, 224);
+    transition: background 0.5s ease;
+}
+
+
+
+@keyframes buttonanimation {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+.shadowed {
+    box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.font {
     font-family: 'Poppins', sans-serif;
 }
 
-input{
+input {
     outline: none;
 }
 
-.error{
+.error {
     opacity: 0;
-  animation: ani 5s forwards;
+    animation: ani 5s forwards;
 }
 
 @keyframes ani {
-    0% {opacity: 0;}
-    10% {opacity: 1;}
-    90% {opacity: 1;}
-    100% {opacity: 0;}
-  }
+    0% {
+        opacity: 0;
+    }
 
-  .messages {
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.messages {
     background-color: #ddddf7;
     padding: 10px;
-    
-    overflow-y: auto;}
-
-
-    .messages::-webkit-scrollbar {
-        width: 0;
-      }
-
-    /* .messages::-webkit-scrollbar-track{
-    background: #d4d4d4;
-    box-shadow: 0 0 2px rgba(0,0,0, .2) inset;
+    overflow-y: auto;
 }
-.messages::-webkit-scrollbar-thumb{
-    background: #939393;
+
+
+.messages::-webkit-scrollbar {
+    width: 0;
 }
-.messages::-webkit-scrollbar-thumb:hover{
-    background: #7c7c7c;
-} */
+
+.shadowed1{
+    box-shadow:inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.finduser{
+    background: #dcebf3;
+
+}
+.finduser:hover{
+    background: rgb(172, 186, 224);
+    transition: background 0.5s ease;
+}
+

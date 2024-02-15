@@ -20,12 +20,15 @@ const Chats = () => {
             return () => unsub()
         }
 
+       
+
         currentUser.uid && getChats()
 
 
     }, [currentUser.uid]);
 
     const handleSelect = (user) =>{
+        console.log(user);
         dispatch({type:"CHANGE_USER",payload:user})
     }
 
@@ -34,12 +37,16 @@ const Chats = () => {
         <div className='h-full bg-indigo-200'>
             {
                 Object.entries(chats)?.sort((a,b)=>b[1].date-a[1].date).map((chat)=>(
-                    <div key={chat[0]} className='flex p-2 gap-x-2 items-center' onClick={()=>handleSelect(chat[1].userInfo)}>
+                    <div key={chat[0]} className='flex p-2 gap-x-2 items-center chat' onClick={()=>handleSelect(chat[1].userInfo)}>
                         <img className='w-8' src={chat[1].userInfo.photoURL} alt="ava" />
                         <div className='flex flex-col'>
-                            <p>{ chat[1].userInfo.displayName }</p>
-                            <p>{ chat[1].lastMessage?.text }</p>
-                        </div>
+                            <p className='capitalize'>{ chat[1].userInfo.displayName }</p>
+                            <div className='flex gap-x-32'>
+                            <p>{  chat[1].lastMessage?.text.slice(0, 19)   } {chat[1].lastMessage?.text.length>19 ? "..." :null  }   </p>
+                            {/* <p>{           new Date(chat[1].date.seconds).toLocaleTimeString() }</p> */}
+                            </div>
+                            
+                             </div>
                     </div>
                 ))
             }

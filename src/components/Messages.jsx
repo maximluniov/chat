@@ -18,11 +18,12 @@ const Messages = () => {
     };
   }, [data.chatId]);
 
-  console.log(messages)
+ 
 
   return (
-    <div className="messages flex flex-col gap-y-3">
-      {messages.map((message) => (
+    
+    <div className="messages flex flex-col gap-y-4 h-full shadowed1">
+      {messages?.map((message) => (
         <Message message={message} key={message.id} />
       ))}
     </div>

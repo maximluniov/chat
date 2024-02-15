@@ -16,10 +16,10 @@ const Message = ({message}) => {
     return (
     <div
       ref={ref}
-      className={`message ${message.senderId === currentUser.uid && "owner"}`}
+      className={`message ${message.senderId === currentUser.uid && "owner"} flex items-center gap-x-3 flex-wrap`}
     >
       <div className="flex">
-        <img className='w-16'
+        <img className='w-8 rounded-full h-8'
           src={
             message.senderId === currentUser.uid
               ? currentUser.photoURL
@@ -29,9 +29,9 @@ const Message = ({message}) => {
         />
         {/* <span>just now</span> */}
       </div>
-      <div className="messageContent">
+      <div className="flex">
         <p>{message.text}</p>
-        {message.img && <img src={message.img} alt="" />}
+        {/* {message.img && <img   src={message.img} alt="" />} */}
       </div>
     </div>
   )

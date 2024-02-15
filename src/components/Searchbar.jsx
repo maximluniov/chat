@@ -26,27 +26,31 @@ const Searchbar = () => {
     const[user,setUser] = useState(null);
     const[err,setErr]=useState(false);
 
+    const [loading,setLoading] = useState(false);
 
 
     const handleKey = e =>{
-      e.code === "Enter" && handleSearch();
+      e.code === "Enter" && handleSearch() 
+      
     }
 
   const handleSearch = async () =>{
     const q = query(collection(db,"users"), where("displayName", "==", username));
-
+    
     try{
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        console.log(doc.data())
+       
         setUser(doc.data());
+        
       });
     }
-    catch(err){
+    catch(error){
+      console.log(error)
       setErr(true)
     }
     
-
+ 
   }
 
   const handleSelect = async () => {
@@ -80,8 +84,10 @@ const Searchbar = () => {
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
+        
       }
-    } catch (err) {}
+      
+    } catch (error) {}
     
     dispatch({type:"CHANGE_USER",payload:user})
     setUser(null);
@@ -93,15 +99,18 @@ const Searchbar = () => {
     
   
   return (
-    <div className='bg-indigo-200  p-4 flex flex-col items-center'>
+    <div className='bg-indigo-200  p-4 flex flex-col gap-y-2'>
 
-      <input type="text" onKeyDown={handleKey} value={username} onChange={(e)=>setUsername(e.target.value)}  className='w-full bg-inherit border-b-2 ' />
-      
+      <div className='flex items-center'>
+      <input type="text"    placeholder='  Type username to find someone'  onKeyDown={handleKey} value={username} onChange={(e)=>{setUsername(e.target.value);}}  className='w-full bg-white rounded-2xl p-1 pl-2' />
+      <button className='bg-white p-1 rounded-r-xl hidden'>Search</button>
+      </div>
       <div>
+       
        {err && <div>User not found</div>}
-       {user&& <div className='flex gap-x-40 cursor-pointer' onClick={handleSelect}>
+       {user&& <div className=' flex gap-x-5 cursor-pointer items-center finduser p-2 rounded-2xl' onClick={handleSelect}>
         <img  className='w-10 ' src={user.photoURL} alt="ava" />
-        <p>{user.displayName}</p>
+        <p className='capitalize'>{user.displayName}</p>
        </div> }
       </div>
 

@@ -14,6 +14,8 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const [image,setImage] = useState();
+
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -60,6 +62,7 @@ const Register = () => {
     } catch (err) {
       setErr(true);
       setLoading(false);
+      setImage(null);
     }
   };
 
@@ -67,10 +70,10 @@ const Register = () => {
 
 
   return (
-    <div className='flex  h-lvh items-center justify-center bg-indigo-50'>
-
-      <div className='bg-indigo-100   px-20 py-6 rounded-xl font '>
-        <h1 className='text-3xl mb-4'>Welcome to S-Chat!</h1>
+    <div className='flex flex-col h-lvh items-center justify-center bg-indigo-50 font'>
+<h1 className='text-5xl mb-4 '>Welcome to S-Chat!</h1>
+      <div className='bg-indigo-100   px-20 py-6 rounded-xl  '>
+        
         <h2>Registration</h2>
 
 
@@ -81,12 +84,15 @@ const Register = () => {
 
 
           <label className='cursor-pointer flex items-center' htmlFor="file">
-            <img className='w-16' src={index.addphoto} alt="addphoto" />
+           
+           {image ? <img className='w-16' src={URL.createObjectURL(image)} alt="addphoto" />
+           :
+            <><img className='w-16' src={index.addphoto} alt="addphoto" />
             <p>
               Add an avatar
-            </p>
+            </p></> }
           </label>
-          <input id='file' className='hidden my-2 p-2 ' type="file" placeholder='Add an avatar' />
+          <input id='file' className='hidden my-2 p-2 ' type="file" placeholder='Add an avatar' onChange={e => setImage(e.target.files[0])} />
 
 
 

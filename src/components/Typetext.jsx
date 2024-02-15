@@ -55,11 +55,11 @@ const Typetext = () => {
   };
 
   return (
-    <div className='flex gap-x-2 items-center px-2 pt-2' >
+    <div className='flex gap-x-2 items-center p-2' style={{backgroundColor: "#ddddf7"}} >
 
     
 
-<div className='flex items-center gap-x-2 bg-white w-full'> 
+<div className='flex items-center gap-x-2 bg-white w-full' > 
         {/* <input
           type="file"
           style={{ display: "none" }}
@@ -80,7 +80,7 @@ const Typetext = () => {
         <label htmlFor="photo">
           <img className='h-8' src={addphoto} alt="x" />
         </label> */}
-        <input type="text" onKeyDown={(e)=>e.code==="Enter"&& handleSend()} onChange={(e)=>setText(e.target.value)  }  value={text} className='w-full h-10  '/>
+        <input type="text" onKeyDown={(e)=>e.code==="Enter"&& handleSend()} onChange={(e)=>setText(e.target.value)  }  value={text} className='w-full h-8 m-1'/>
       </div>
 
       
