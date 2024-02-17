@@ -22,7 +22,7 @@ const Messages = () => {
 
   return (
     
-    <div className="messages flex flex-col gap-y-4 h-full shadowed1">
+    <div className="messages flex flex-col gap-y-4 h-full w-full shadowed1">
       {messages?.map((message) => (
         <Message message={message} key={message.id} />
       ))}

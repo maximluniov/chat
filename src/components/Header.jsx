@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-// import index from '../assets/index';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { AuthContext } from '../context/AuthContext'
@@ -29,7 +28,7 @@ const Header = ({ togglePage }) => {
     <div className='flex items-center justify-between gap-x-2 p-2'>
       <div className='flex items-center gap-x-2'>
         <img src={currentUser.photoURL} className='w-8 h-8 rounded-full bg-white' alt="ava" />
-        <p className='capitalize'>
+        <p className='capitalize font-bold'>
           {currentUser.displayName}
         </p>
       </div>

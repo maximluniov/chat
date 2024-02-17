@@ -136,3 +136,9 @@ input {
         opacity: 1;
     }
 }
+
+
+dialog::backdrop{
+    background:rgb(148, 172, 182);
+    opacity: .7;
+}

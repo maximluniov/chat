@@ -1,19 +1,19 @@
-import React,{useContext,useRef,useEffect} from 'react'
+import React, { useContext, useRef, useEffect } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import { ChatContext } from '../context/ChatContext';
 
-const Message = ({message}) => {
-  
-    const { currentUser } = useContext(AuthContext);
-    const {data} = useContext(ChatContext);
+const Message = ({ message }) => {
 
-    const ref = useRef();
+  const { currentUser } = useContext(AuthContext);
+  const { data } = useContext(ChatContext);
 
-    useEffect(() => {
-      ref.current?.scrollIntoView({ behavior: "smooth" });
-    }, [message]);
+  const ref = useRef();
 
-    return (
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  }, [message]);
+
+  return (
     <div
       ref={ref}
       className={`message ${message.senderId === currentUser.uid && "owner"} flex items-center gap-x-3 flex-wrap`}
@@ -29,10 +29,12 @@ const Message = ({message}) => {
         />
         {/* <span>just now</span> */}
       </div>
-      <div className="flex">
-        <p>{message.text}</p>
-        {/* {message.img && <img   src={message.img} alt="" />} */}
-      </div>
+
+      <p className='break-all'>
+        {message.text}
+      </p>
+
+
     </div>
   )
 }
