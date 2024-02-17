@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@coreui/react": "^4.11.1",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/base": "^5.0.0-beta.36",
+    "@mui/material": "^5.15.10",
+    "@syncfusion/ej2-react-splitbuttons": "^24.2.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

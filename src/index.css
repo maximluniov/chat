@@ -2,15 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .button {
     transition: transform .5s;
 
 }
+.buttoncommon {
+    transition: transform .5s;
 
+}
 .button:hover {
     transform: scale(1.05);
     background: rgb(226, 155, 155);
+    transition: background 0.5s ease;
+}
+.buttoncommon:hover {
+    transform: scale(1.05);
+    background: rgb(219, 225, 230);
     transition: background 0.5s ease;
 }
 
@@ -101,3 +108,31 @@ input {
     transition: background 0.5s ease;
 }
 
+.loader {
+    border: 2px solid #f3f3f3; /* Light grey */
+    border-top: 2px solid #3498db; 
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.smooth {
+    
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn .5s ease-in-out forwards; /* Animation definition */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -5,14 +5,14 @@ import Chats from './Chats'
 
 
 
-const Sidebar = () => {
+const Sidebar = ({togglePage}) => {
 
 
-
+ 
 
   return (
     <div className=' bg-indigo-300 w-1/3 flex flex-col '>
-        <Header/>
+        <Header togglePage={() => togglePage()} />
         <Searchbar />
         <Chats/>
     </div>

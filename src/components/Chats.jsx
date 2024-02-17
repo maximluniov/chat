@@ -35,8 +35,8 @@ const Chats = () => {
 
    return (
         <div className='h-full bg-indigo-200'>
-            {
-                Object.entries(chats)?.sort((a,b)=>b[1].date-a[1].date).map((chat)=>(
+            { Object.entries(chats).length>0?
+                 Object.entries(chats)?.sort((a,b)=>b[1].date-a[1].date).map((chat)=>(
                     <div key={chat[0]} className='flex p-2 gap-x-2 items-center chat' onClick={()=>handleSelect(chat[1].userInfo)}>
                         <img className='w-8' src={chat[1].userInfo.photoURL} alt="ava" />
                         <div className='flex flex-col'>
@@ -48,7 +48,7 @@ const Chats = () => {
                             
                              </div>
                     </div>
-                ))
+                )) : <div className='p-2'>To start messaging you need to find someone using search above</div>
             }
         </div>
     )

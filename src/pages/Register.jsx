@@ -98,7 +98,10 @@ const Register = () => {
 
 
           <button type='submit' disabled={loading} className='w-full p-2 bg-indigo-400 rounded-md ' >Sign Up</button>
-          {loading && "Uploading and compressing the image please wait..."}
+          { loading && <div className='flex' >
+            <div className='loader'></div>
+            <p>Processing request</p>
+            </div>}
           {err && <div>error</div>}
         </form>
 
