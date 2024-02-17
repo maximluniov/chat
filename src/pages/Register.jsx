@@ -76,7 +76,7 @@ const Register = () => {
         <form className='flex flex-col gap-y-1 ' onSubmit={handleSubmit} >
           <input className='bg-white flex w-full h-10 items-center my-2 p-2 ' type="text" placeholder='Your name' required />
           <input className='bg-white flex w-full h-10 items-center my-2 p-2 ' type="email" placeholder='Your e-mail' required />
-          <input className='bg-white flex w-full h-10 items-center my-2 p-2 ' min={8} type="password" placeholder='password' required />
+          <input className='bg-white flex w-full h-10 items-center my-2 p-2 ' minlength="8" type="password" placeholder='password' required />
           <label className='cursor-pointer flex items-center' htmlFor="file">
             {image ? <img className='w-16' src={URL.createObjectURL(image)} alt="addphoto" />
               :
