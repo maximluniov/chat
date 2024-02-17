@@ -86,7 +86,7 @@ const Register = () => {
                   Add an avatar
                 </p></>}
           </label>
-          <input id='file' className='hidden my-2 p-2 ' type="file" placeholder='Add an avatar' onChange={e => setImage(e.target.files[0])} required />
+          <input id='file' className='hidden my-2 p-2 ' accept="image/*" type="file" placeholder='Add an avatar' onChange={e => setImage(e.target.files[0])} required />
           <button type='submit' disabled={loading} className='w-full p-2 bg-indigo-400 rounded-md' >Sign Up</button>
           {loading && <div className='flex' >
             <div className='loader'></div>
